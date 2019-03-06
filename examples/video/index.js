@@ -24,6 +24,8 @@ function onLoad() {
     video: 'congo_2048.mp4',
     is_stereo: true,
     loop: false,
+    allow: "vr",
+    isPaused: true,
     //hide_fullscreen_button: true,
     //volume: 0.4,
     //muted: true,

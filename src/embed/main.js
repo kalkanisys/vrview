@@ -101,8 +101,10 @@ function onRenderLoad(event) {
       showPlayButton();
       document.body.addEventListener('touchend', onVideoTap);
     } else {
-      event.videoElement.play();
+      // event.videoElement.play();
+      event.videoElement.load();
     }
+    // Show play button for both
 
     // Attach to pause and play events, to notify the API.
     event.videoElement.addEventListener('pause', onPause);

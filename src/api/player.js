@@ -45,7 +45,7 @@ function Player(selector, contentInfo) {
   window.addEventListener('message', this.onMessage_.bind(this), false);
 
   // Expose a public .isPaused attribute.
-  this.isPaused = false;
+  this.isPaused = contentInfo.isPaused || true;
 
   // Expose a public .isMuted attribute.
   this.isMuted = false;
@@ -163,6 +163,9 @@ Player.prototype.createIframe_ = function(contentInfo) {
   var iframe = document.createElement('iframe');
   iframe.setAttribute('allowfullscreen', true);
   iframe.setAttribute('scrolling', 'no');
+  if (contentInfo.allow) {
+    iframe.setAttribute("allow", contentInfo.allow);
+  }
   iframe.style.border = 0;
 
   // Handle iframe size if width and height are specified.
